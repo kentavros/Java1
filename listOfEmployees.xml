@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+	<employee>
+		<firstName>Alexsandr</firstName>
+		<patronymic>Sergeevich</patronymic>
+		<lastName>Shcherbanyuk</lastName>
+		<position>Salesforce Developer</position>
+	</employee>
+	<employee>
+		<firstName>Dim</firstName>
+		<patronymic>Dimich</patronymic>
+		<lastName>Lambru</lastName>
+		<position>Salesforce Developer</position>
+	</employee>
+	<employee>
+		<firstName>Andrey</firstName>
+		<patronymic>Sergeevich</patronymic>
+		<lastName>Kolotiy</lastName>
+		<position>Salesforce Developer</position>
+	</employee>
+	<employee>
+		<firstName>Anna</firstName>
+		<patronymic>Viktorovna</patronymic>
+		<lastName>Mahovskaya</lastName>
+		<position>Salesforce Developer</position>
+	</employee>
+	<employee>
+		<firstName>Vitaliy</firstName>
+		<patronymic>Vitalievich</patronymic>
+		<lastName>Usatenko</lastName>
+		<position>PM Manager</position>
+	</employee>
+	<employee>
+		<firstName>Alexsandr</firstName>
+		<patronymic>Yrievich</patronymic>
+		<lastName>Mihrin</lastName>
+		<position>Head SZT</position>
+	</employee>
+	<employee>
+		<firstName>Vasiliy</firstName>
+		<patronymic>Fedorovich</patronymic>
+		<lastName>Pupkin</lastName>
+		<position>PHP Developer</position>
+	</employee>
+	<employee>
+		<firstName>Mariya</firstName>
+		<patronymic>Ivanovna</patronymic>
+		<lastName>Kokok</lastName>
+		<position>JS Developer</position>
+	</employee>
+	<employee>
+		<firstName>Evgeniy</firstName>
+		<patronymic>Vitalievich</patronymic>
+		<lastName>Trebuxin</lastName>
+		<position>Driver</position>
+	</employee>
+	<employee>
+		<firstName>Sergey</firstName>
+		<patronymic>Vasilievich</patronymic>
+		<lastName>Vorobey</lastName>
+		<position>Foreman</position>
+	</employee>
+</employees>
