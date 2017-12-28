@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.exceptions.InvalidOperationException;
@@ -22,39 +23,25 @@ public class DocGenerator {
 	private int countDoc = 0;
 	private int countChanges = 0;
 	
-
 	@SuppressWarnings("resource")
 	public void createDoc(ArrayList<HashMap <String, String>> data) {
 		try {
 			System.out.println(dateCreatedDoc() + " in process ...");
 			for (HashMap <String, String> employee : data) {
+				employee.put("date", dateCreatedDoc());
 				XWPFDocument doc = new XWPFDocument(OPCPackage.open(filePath));
-				for (XWPFParagraph paragraph : doc.getParagraphs()) {
-					List <XWPFRun> runs = paragraph.getRuns();
-					if (runs != null) {
-						for (XWPFRun text : runs) {
-							String str = text.getText(0);
-							if (str != null && str.contains("{{{firstName}}}")) {
-								str = str.replace("{{{firstName}}}", employee.get("firstName"));
-								countChanges++;
+				for (Map.Entry<String,String> entry : employee.entrySet()) {
+					for (XWPFParagraph paragraph : doc.getParagraphs()) {
+						List <XWPFRun> runs = paragraph.getRuns();
+						if (runs != null) {
+							for (XWPFRun text : runs) {
+								String str = text.getText(0);
+								if (str != null && str.contains("{{{"+ entry.getKey() +"}}}")) {
+									str = str.replace("{{{"+ entry.getKey() +"}}}", entry.getValue());
+									countChanges++;
+									text.setText(str, 0);
+								}
 							}
-							if (str != null && str.contains("{{{patronymic}}}")) {
-								str = str.replace("{{{patronymic}}}", employee.get("patronymic"));
-								countChanges++;
-							}
-							if (str != null && str.contains("{{{lastName}}}")) {
-								str = str.replace("{{{lastName}}}", employee.get("lastName"));
-								countChanges++;
-							}
-							if (str != null && str.contains("{{{position}}}")) {
-								str = str.replace("{{{position}}}", employee.get("position"));
-								countChanges++;
-							}
-							if (str != null && str.contains("{{{date}}}")) {
-								str = str.replace("{{{date}}}", dateCreatedDoc());
-								countChanges++;
-							}
-							text.setText(str, 0);
 						}
 					}
 				}
